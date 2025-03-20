@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Summit - Registrasi Seminar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Gaya Umum */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F5F5F5; /* Warna latar belakang abu-abu muda */
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #6A1B9A, #AB47BC); /* Gradien ungu */
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #FFFFFF; /* Warna latar putih */
+            padding: 20px;
+            border-right: 1px solid #E0E0E0; /* Warna border abu-abu */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            font-weight: 600;
+            color: #6A1B9A; /* Warna ungu tua */
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #AB47BC; /* Warna ungu muda saat hover */
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: #FFFFFF; /* Warna latar putih */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .main-content h2 {
+            font-weight: 600;
+            color: #6A1B9A; /* Warna ungu tua */
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #E0E0E0; /* Warna border abu-abu */
+            padding: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #AB47BC; /* Warna ungu muda saat focus */
+            box-shadow: 0 0 5px rgba(171, 71, 188, 0.5); /* Shadow ungu muda */
+        }
+
+        .btn-primary {
+            background-color: #6A1B9A; /* Warna ungu tua */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #AB47BC; /* Warna ungu muda saat hover */
+        }
+
+        .btn-primary:disabled {
+            background-color: #CCCCCC; /* Warna abu-abu saat disabled */
+            cursor: not-allowed;
+        }
+
+        /* Pesan Error dan Sukses */
+        .error-message {
+            color: #DC3545; /* Warna merah untuk pesan error */
+            font-size: 0.875em;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: #28A745; /* Warna hijau untuk pesan sukses */
+            font-size: 1.25em;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        /* Gaya untuk ikon */
+        .fas {
+            margin-right: 10px;
+            color: #6A1B9A; /* Warna ungu tua */
+            font-size: 1.1em;
+        }
+
+        /* Hover effect untuk ikon di link */
+        a:hover .fas {
+            color: #AB47BC; /* Warna ungu muda saat hover */
+        }
+
+        /* Responsif untuk Mobile (Breakpoint ≤ 768px) */
+        @media (max-width: 768px) {
+            header .d-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem; /* Sesuaikan ukuran font untuk layar kecil */
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #E0E0E0; /* Warna border abu-abu */
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                margin: 0;
+                padding: 20px;
+            }
+
+            .main-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .form-control {
+                padding: 8px; /* Sesuaikan padding untuk layar kecil */
+            }
+
+            .btn-primary {
+                padding: 8px 16px; /* Sesuaikan padding untuk layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center py-4">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center">
+                <!-- Logo PNM -->
+                <img src="logo-pnm.png" alt="Logo PNM">
+                <!-- Judul -->
+                <h1>IT PNM Summit</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Ringkas -->
+            <div class="col-md-3 sidebar">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Informasi Seminar -->
+                        <h3 class="card-title">Informasi Seminar</h3>
+                        <p><i class="fas fa-calendar-alt"></i> <strong>20 Maret 2025</strong></p>
+                        <p><i class="fas fa-clock"></i> <strong>09.00 - 12.00 WIB</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Jakarta Convention Center</strong></p>
+
+                        <!-- Pembicara -->
+                        <h3 class="card-title mt-4">Pembicara</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-user"></i> Sandhika Galih</li>
+                        </ul>
+
+                        <!-- Link Penting -->
+                        <h3 class="card-title mt-4">Link Penting</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none"><i class="fas fa-file-pdf"></i> Panduan</a></li>
+                            <li><a href="#" class="text-decoration-none"><i class="fas fa-file-alt"></i> Syarat & Ketentuan</a></li>
+                            <li><a href="#" class="text-decoration-none"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <h2>Form Registrasi</h2>
+                    <form id="registrationForm" novalidate>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="fullName" required minlength="3">
+                            <div class="error-message" id="fullNameError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required minlength="8">
+                            <div class="error-message" id="passwordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                            <div class="error-message" id="confirmPasswordError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthDate" class="form-label">Tanggal Lahir</label>
+                            <input type="date" class="form-control" id="birthDate" required max="2006-12-31">
+                            <div class="error-message" id="birthDateError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Nomor HP</label>
+                            <input type="tel" class="form-control" id="phoneNumber" required pattern="^\+62\d{9,12}$">
+                            <div class="error-message" id="phoneNumberError"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitButton" disabled>Submit</button>
+                    </form>
+                    <div id="successMessage" class="success-message" style="display: none;">Registrasi Berhasil!</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Made with ❤️ | by Anisaauralita | 243307032</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const form = document.getElementById('registrationForm');
+        const submitButton = document.getElementById('submitButton');
+        const successMessage = document.getElementById('successMessage');
+
+        const validateForm = () => {
+            let isValid = true;
+
+            const fullName = document.getElementById('fullName');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const birthDate = document.getElementById('birthDate');
+            const phoneNumber = document.getElementById('phoneNumber');
+
+            const fullNameError = document.getElementById('fullNameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            const birthDateError = document.getElementById('birthDateError');
+            const phoneNumberError = document.getElementById('phoneNumberError');
+
+            // Validasi Nama Lengkap
+            if (fullName.value.length < 3) {
+                fullNameError.textContent = 'Nama lengkap harus minimal 3 karakter.';
+                isValid = false;
+            } else {
+                fullNameError.textContent = '';
+            }
+
+            // Validasi Email
+            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                emailError.textContent = 'Format email tidak valid.';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Validasi Password
+            if (password.value.length < 8) {
+                passwordError.textContent = 'Password harus minimal 8 karakter.';
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            // Validasi Konfirmasi Password
+            if (confirmPassword.value !== password.value) {
+                confirmPasswordError.textContent = 'Konfirmasi password tidak sama.';
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+
+            // Validasi Tanggal Lahir
+            const maxBirthDate = new Date('2006-12-31');
+            const inputBirthDate = new Date(birthDate.value);
+            if (inputBirthDate > maxBirthDate) {
+                birthDateError.textContent = 'Tanggal lahir tidak boleh lebih dari 31 Desember 2006.';
+                isValid = false;
+            } else {
+                birthDateError.textContent = '';
+            }
+
+            // Validasi Nomor HP
+            if (!phoneNumber.value.match(/^\+62\d{9,12}$/)) {
+                phoneNumberError.textContent = 'Format nomor HP Indonesia tidak valid (contoh: +6281234567890).';
+                isValid = false;
+            } else {
+                phoneNumberError.textContent = '';
+            }
+
+            // Aktifkan atau nonaktifkan tombol submit
+            submitButton.disabled = !isValid;
+
+            return isValid;
+        };
+
+        form.addEventListener('input', validateForm);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Mencegah form submit default
+
+            if (validateForm()) {
+                // Tampilkan pesan sukses
+                successMessage.style.display = 'block';
+
+                // Reset form setelah 3 detik
+                setTimeout(() => {
+                    form.reset();
+                    successMessage.style.display = 'none';
+                    submitButton.disabled = true; // Nonaktifkan tombol submit setelah reset
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
